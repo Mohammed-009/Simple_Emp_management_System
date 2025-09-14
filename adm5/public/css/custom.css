@@ -1,0 +1,58 @@
+.align-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    
+    
+}
+.div-center-login{
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+.div-center{
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    width: 50%;
+}
+/* .text-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+} */
+
+.main-div {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+/* sweetalert styles */
+        /* resources/css/app.css */
+    
+.custom-swal {
+    font-size: 14px; /* Adjust font size as needed */
+    width: 400px; /* Adjust width as needed */
+    padding: 20px;
+}
+        
+.custom-swal .swal2-popup {
+    padding: 20px; /* Adjust padding as needed */
+    width: auto; /* Ensure the width is auto to fit the content */
+}
+        
+.custom-swal .swal2-title {
+    font-size: 18px; /* Adjust title font size */
+}
+        
+.custom-swal .swal2-content {
+    font-size: 14px; /* Adjust content font size */
+}
+        
+.custom-swal .swal2-actions button {
+    font-size: 14px; /* Adjust button font size */
+}
+/* sweetalert end */
