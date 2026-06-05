@@ -29,7 +29,7 @@ class PayslipController extends Controller
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'Employee_name' => 'required',
-            'Employee_number' => 'required|unique:payslips',
+            'Employee_code' => 'required|unique:payslips',
             'Account_number' => 'required',
             'Working_branch' => 'required',
             'Department' => 'required',
@@ -143,78 +143,6 @@ class PayslipController extends Controller
         
         $payslip = Payslip::where('id' , $id)->first();
 
-
-        // Generate .docx file with PhpWord
-        // $phpWord = new PhpWord();
-        // $section = $phpWord->addSection();
-        // $table = $section->addTable([
-        //     'unit' => \PhpOffice\PhpWord\SimpleType\TblWidth::TWIP,
-        //     'width' => 1400 * 1000,
-        //     'align' => 'center'
-        // ]);
-
-
-        // // return $payslip->$payslip->Provident_fund;
-        // $headers = ['name' => 'Book Antiqua', 'size' => 9, 'align' => 'center', 'bold' => true, 'space' => ['before' => 800, 'after' => 800, 'rule' => 'exact']];
-        // $table->addRow();
-        // $table->addCell(500, ['borderSize' => 1])->addText('', $headers);
-        // // $table->addCell(1600, ['borderSize' => 1])->addText('ID', $headers);
-        // $table->addCell(3000, ['borderSize' => 1])->addText('EARNINGS', $headers);
-        // $table->addCell(1800, ['borderSize' => 1])->addText('AMOUNT', $headers);
-        // $table->addCell(2000, ['borderSize' => 1])->addText('DEDUCTIONS', $headers);
-        // $table->addCell(1500, ['borderSize' => 1])->addText('AMOUNT', $headers);
-        // $table->addCell(1250, ['borderSize' => 1])->addText('Balance', $headers);
-
-
-        // $key = 1;
-        // foreach ($payslips as $key => $payslip) {
-            // if ($payslip->ncpwd_no == null) {
-            //     $payslip->ncpwd_no = "NONE";
-            // }
-        //    return $payslip->payslip;
-            // $table->addRow();
-            // $table->addCell(500, ['borderSize' => 1])->addText(++$key);
-            // // $table->addCell(1600, ['borderSize' => 1])->addText($payslip->id);
-            // $table->addCell(3000, ['borderSize' => 1])->addText('Basic', $headers);
-            // $table->addCell(1600, ['borderSize' => 1])->addText($payslip->Basic_salary);
-            // $table->addCell(3000, ['borderSize' => 1])->addText('Provident fund', $headers);
-            // $table->addCell(1800, ['borderSize' => 1])->addText($payslip->Provident_fund);
-
-            // $table->addRow();
-            // $table->addCell(500, ['borderSize' => 1])->addText(++$key);
-            // $table->addCell(3000, ['borderSize' => 1])->addText('Incentive pay', $headers);
-            // $table->addCell(2000, ['borderSize' => 1])->addText($payslip->Incentive_pay);
-            // $table->addCell(3000, ['borderSize' => 1])->addText('Professional tax', $headers);
-            // $table->addCell(1500, ['borderSize' => 1])->addText($payslip->Professional_tax);
-
-            // $table->addRow();
-            // $table->addCell(500, ['borderSize' => 1])->addText(++$key);
-            // $table->addCell(3000, ['borderSize' => 1])->addText('House allowance', $headers);
-            // $table->addCell(1250, ['borderSize' => 1])->addText($payslip->House_rent_amount);
-            // $table->addCell(3000, ['borderSize' => 1])->addText('Loan', $headers);
-            // $table->addCell(1250, ['borderSize' => 1])->addText($payslip->Loan_amount);
-
-            // $table->addRow();
-            // $table->addCell(500, ['borderSize' => 1])->addText(++$key);
-            // $table->addCell(3000, ['borderSize' => 1])->addText('Meal allowance', $headers);
-            // $table->addCell(1250, ['borderSize' => 1])->addText($payslip->Meal_allowance);
-            // $table->addCell(3000, ['borderSize' => 1])->addText('', $headers);
-            // $table->addCell(3000, ['borderSize' => 1])->addText('', $headers);
-
-            // $table->addRow();
-            // $table->addCell(500, ['borderSize' => 1])->addText(++$key);
-            // $table->addCell(3000, ['borderSize' => 1])->addText('Total earnings', $headers);
-            // $table->addCell(1250, ['borderSize' => 1])->addText($payslip->Basic_salary + $payslip->Incentive_pay + $payslip->House_rent_amount + $payslip->Meal_allowance);
-            // $table->addCell(3000, ['borderSize' => 1])->addText('Total deductions', $headers);
-            // $table->addCell(1250, ['borderSize' => 1])->addText($payslip->Provident_fund + $payslip->Professional_tax + $payslip->Loan_amount);
-            
-            // $table->addRow();
-            // $table->addCell(500, ['borderSize' => 1])->addText();
-            // $table->addCell(3000, ['borderSize' => 1])->addText('', $headers);
-            // $table->addCell(1250, ['borderSize' => 1])->addText('', $headers);
-            // $table->addCell(3000, ['borderSize' => 1])->addText('Netpay', $headers);
-            // $table->addCell(1250, ['borderSize' => 1])->addText($payslip->Basic_salary + $payslip->Incentive_pay + $payslip->House_rent_amount + $payslip->Meal_allowance - $payslip->Provident_fund - $payslip->Professional_tax - $payslip->Loan_amount);
-
             
         // }
         // ------- //
@@ -241,34 +169,6 @@ class PayslipController extends Controller
         //  -----//
          // Convert .docx to HTML
         
-
-        // // Convert HTML to PDF using Dompdf
-        // $pdf = new Dompdf();
-        // $pdf->loadHtml($html);
-        // $pdf->setPaper('A4', 'potrait');
-        // $pdf->render();
-
-
-        // //Output the generated PDF to Browser
-        // return $pdf->stream('payslip.pdf');
-    }
-
-
-    // private function convertDocxToHtml($filePath)
-    // {
-        // Load .docx file
-        // $phpWord = IOFactory::load($filePath);
-
-
-        // Convert .docx to HTML
-        // $htmlWriter = IOFactory::createWriter($phpWord, 'HTML');
-        // $htmlPath = storage_path('app/temp.html');
-        // $htmlWriter->save($htmlPath);
-
-
-        // Get HTML content
-        // return file_get_contents($htmlPath);
-    // }
 
 
 
