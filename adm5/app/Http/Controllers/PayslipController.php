@@ -19,12 +19,15 @@ class PayslipController extends Controller
 
     public function createSlip()
     {
-        return view('Slip.create_slip');
+        // return view('Slip.create_slip');
+        $employees = User::all();
+        return view('Slip.create_slip', compact('employees'));
     }
 
     public function storeDetails(Request $request)
     {
         $request->validate([
+            'user_id' => 'required|exists:users,id',
             'Employee_name' => 'required',
             'Employee_number' => 'required|unique:payslips',
             'Account_number' => 'required',
@@ -44,10 +47,11 @@ class PayslipController extends Controller
 
         $payslip = new Payslip();
         
-        $payslip->user_id= auth()->user()->id;
+        // $payslip->user_id= auth()->user()->id;
+        $payslip->user_id = $request->user_id;
         
         $payslip->Employee_name = $request->input('Employee_name');
-        $payslip->Employee_number = $request->input('Employee_number');
+        $payslip->Employee_code = $request->input('Employee_code');
         $payslip->Account_number = $request->input('Account_number');
         $payslip->Working_branch = $request->input('Working_branch');
         $payslip->Department = $request->input('Department');
@@ -82,7 +86,7 @@ class PayslipController extends Controller
     {
         $request->validate([
             'Employee_name' => 'required',
-            'Employee_number' => 'required',
+            'Employee_code' => 'required',
             'Account_number' => 'required',
             'Working_branch' => 'required',
             'Department' => 'required',
@@ -100,7 +104,7 @@ class PayslipController extends Controller
 
         $payslip = Payslip::find($id);
         $payslip->Employee_name = $request->input('Employee_name');
-        $payslip->Employee_number = $request->input('Employee_number');
+        $payslip->Employee_code = $request->input('Employee_code');
         $payslip->Account_no = $request->input('Account_number');
         $payslip->Working_branch = $request->input('Working_branch');
         $payslip->Department = $request->input('Department');
@@ -219,7 +223,7 @@ class PayslipController extends Controller
         $phpWord->setValue('Employee_name', $payslip->Employee_name);
         $phpWord->setValue('Pay_period', $payslip->Pay_period);
         $phpWord->setValue('Designation', $payslip->Designation);
-        $phpWord->setValue('Employee_number', $payslip->Employee_number);
+        $phpWord->setValue('Employee_code', $payslip->Employee_code);
         $phpWord->setValue('Department', $payslip->Department);
         $phpWord->setValue('Basic_salary', $payslip->Basic_salary);
         $phpWord->setValue('Provident_fund', $payslip->Provident_fund);
