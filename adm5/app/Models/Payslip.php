@@ -14,7 +14,8 @@ class Payslip extends Model
 //relationship
 public function user()
 {
-    return $this->belongsTo('App\Models\User');
+    // return $this->belongsTo('App\Models\User');
+     return $this->belongsTo(User::class, 'user_id');
 }
 }
 
