@@ -83,6 +83,7 @@ Route::get('/delete-department{id}', [DepartmentsController::class, 'deleteDepar
 Route::get('/payments', [salariesController::class, 'makePayment'])->name('makePayment')->middleware('is_Admin');
 Route::get('/amount-payable', [salariesController::class, 'Create-amount'])->name('Create-amount')->middleware('is_Admin');
 Route::get('/employee-leave', [salariesController::class, 'employeeLeave'])->name('employeeLeave')->middleware('is_Admin');
+Route::get('/payment-notification', [salariesController::class, 'paymentNotification'])->name('paymentNotification')->middleware('is_Admin');
 
 
 // normal empolyees controllers ***user_dashboard//
