@@ -84,7 +84,8 @@
                                                                     </div>
                                                                     <br>
                                                                     <div>
-                                                                        <input type="submit" value="pay" class="btn btn-success w-25">
+                                                                        <!-- <input type="submit" value="pay" class="btn btn-success w-25"> -->
+                                                                        <a href="{{route('paymentNotification')}}" class="btn btn-success text-center">Pay</a>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -96,7 +97,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                        <a href="{{route('Actions.edit', $post->id)}}" class="btn btn-primary btn-sm">Change</a>
+                                        <!-- <a href="{{route('Actions.edit', $post->id)}}" class="btn btn-primary btn-sm">Change</a> -->
                                     </td>
                                 </tr>
                             @endforeach
