@@ -26,7 +26,7 @@
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
                                     <td>{{$payslip->Employee_name}}</td>
-                                    <td>{{$payslip->Employee_number}}</td>
+                                    <td>{{$payslip->Employee_code}}</td>
                                     <td>{{$payslip->Designation}}</td>
                                     <td>{{$payslip->Department}}</td>
                                     <td>
