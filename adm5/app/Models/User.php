@@ -50,13 +50,15 @@ class User extends Authenticatable
     //user has many records
     public function payslips()
     {
-        return $this->hasMany('App\Models\Payslip');
+        // return $this->hasMany('App\Models\Payslip');
+        return $this->hasMany(Payslip::class, 'user_id');
     }
 
     //user has many records
     public function messages()
     {
-        return $this->hasMany('App\Models\Message');
+        // return $this->hasMany('App\Models\Message');
+        return $this->hasMany(Message::class, 'userId');
     }
 
     public function user_profiles()
