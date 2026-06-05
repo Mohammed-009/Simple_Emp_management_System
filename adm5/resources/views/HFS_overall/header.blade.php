@@ -17,7 +17,7 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 {{-- modal --}}
                 <li><a class="dropdown-item" href="{{route('profileShowAdmin')}}">Profile</a></li>
-                <li><a class="dropdown-item" href="{{route('password.request')}}">Change password</a></li>
+                <li><a class="dropdown-item" href="{{route('password.request')}}" target="blank">Change password</a></li>
                 <li><hr class="dropdown-divider" /></li>
                 <li><a class="dropdown-item" href="{{route('logout')}}">Logout</a></li>
             </ul>
