@@ -150,7 +150,7 @@ class UserprofilesController extends Controller
         User::where('id', $profiles->user_id)->delete();
 
         $profiles->delete();
-        return back();
+        return back()->with('success', 'User deleted successfully');
     }
 
     //Admin profile information
