@@ -13,9 +13,13 @@ class PayslipControllerUser extends Controller
     //
     public function EmployeePayslip()
     {
-        $user= Auth::user();
-        $payslip= $user->payslips;
-        return view('UserEmployeePayslip.fetch')->with('payslips', $payslip);
+        // $user= Auth::user();
+        // $payslip= $user->payslips;
+        // return view('UserEmployeePayslip.fetch')->with('payslips', $payslip);
+
+        $payslips = Payslip::where('user_id', Auth::id())->get();
+
+        return view('UserEmployeePayslip.fetch', compact('payslips'));
 
     }
 }
