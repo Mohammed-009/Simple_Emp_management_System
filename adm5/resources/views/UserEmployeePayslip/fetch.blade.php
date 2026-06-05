@@ -16,24 +16,25 @@
                             <table class="table table-responsive table-bordered">
                                 <thead>
                                     <tr>
-                                        {{-- <th>#</th> --}}
+                                        <th>#</th>
                                         <th>EMP_NAME</th>
                                         <th>EMP_NUMBER</th>
                                         <th>DESIGNATION</th>
                                         <th>DEPARTMENT</th>
                                         <th>PAYSLIP</th>
+                                        <th>VIEW</th>
                                     </tr>
                                 </thead>
                             @foreach($payslips as $payslip)
                                 <tr>
-                                    {{-- <td>{{$loop->iteration}}</td> --}}
+                                    <td>{{$loop->iteration}}</td>
                                     <td>{{$payslip->Employee_name}}</td>
-                                    <td>{{$payslip->Employee_number}}</td>
+                                    <td>{{$payslip->Employee_code}}</td>
                                     <td>{{$payslip->Designation}}</td>
                                     <td>{{$payslip->Department}}</td>
-                                    {{-- <td>
+                                    <td>
                                         <a href="{{route('Slip.download.pdf', $payslip->id)}}" class="btn btn-info btn-sm"><i class="fa fa-download" aria-hidden="true"></i></a>
-                                    </td> --}}
+                                    </td>
                                     <td>
                                         {{-- Modal --}}
                                         <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#myModal-{{ $payslip->id }} ">Generate payslip</button>
