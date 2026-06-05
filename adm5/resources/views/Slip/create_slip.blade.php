@@ -10,6 +10,29 @@
                         <div class="card-body">
                             <form action="{{route('Slip.store')}}" method="POST">
                                 @csrf
+
+                                <div class="row">
+                                  <div class="col-12">
+                                    <div class="form-group">
+                                      <label for="user_id">Select Employee</label>
+
+                                      <select name="user_id" id="user_id" class="form-control form-control-lg" required>
+                                        <option value="">Choose Employee</option>
+
+                                        @foreach($employees as $employee)
+                                        <option value="{{ $employee->id }}">
+                                          {{ $employee->name }}
+                                        </option>
+                                        @endforeach
+
+                                      </select>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <br>
+
+                                
                                 <div class="row">
                                     <div class="col-12 col-lg-4">
                                         <div class="form-group">
@@ -20,7 +43,7 @@
                                     <div class="col-12 col-lg-4">
                                       <div class="form-group">
                                         <label for="Employee_number">Employee Number</label>
-                                        <input type="text" id="Employee_number" name="Employee_number" class="form-control form-control-lg" required>
+                                        <input type="text" id="Employee_code" name="Employee_code" class="form-control form-control-lg" required>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-4">
