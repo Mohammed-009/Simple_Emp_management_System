@@ -9,12 +9,13 @@ class Message extends Model
 {
     use HasFactory;
     protected $table= 'messages';
-    protected $fillable= ['id','user_id', 'Name', 'EmployeeNumber', 'Phone', 'Email', 'MessageBody'];
+    protected $fillable= ['id','userId', 'Name', 'EmployeeNumber', 'Phone', 'Email', 'MessageBody'];
 
     //relationship
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        // return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class, 'userId');
     }
 
 }
