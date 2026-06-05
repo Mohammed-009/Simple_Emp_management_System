@@ -18,7 +18,7 @@
                                     <div class="col-12 col-lg-4">
                                       <div class="form-group">
                                         <label for="Employee_number">Employee Number</label>
-                                        <input type="text" id="Employee_number" name="Employee_number" value="{{$payslip->Employee_number}}" class="form-control form-control-lg" required>
+                                        <input type="text" id="Employee_code" name="Employee_code" value="{{$payslip->Employee_code}}" class="form-control form-control-lg" required>
                                       </div>
                                     </div>
                                     <div class="col-12 col-lg-4">
