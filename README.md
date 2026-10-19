@@ -6,6 +6,9 @@ A project focused on employee management and the organization of employee-relate
 
 https://employee-management.free.nf/
 
+Username: admin@gmail.com
+Password: 0704895174
+
 ## Overview
 
 This project demonstrates an approach to building an employee management application. Refer to the source code for the specific features and workflows implemented.
