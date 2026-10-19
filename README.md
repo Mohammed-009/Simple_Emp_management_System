@@ -4,7 +4,7 @@ A project focused on employee management and the organization of employee-relate
 
 ## Live Demo
 
-The public deployment link will be added here when available.
+https://employee-management.free.nf/
 
 ## Overview
 
